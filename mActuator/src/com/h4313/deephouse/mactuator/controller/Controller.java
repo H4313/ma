@@ -1,5 +1,9 @@
 package com.h4313.deephouse.mactuator.controller;
 
+import com.h4313.deephouse.actuator.Actuator;
+import com.h4313.deephouse.frame.Frame;
+import com.h4313.deephouse.housemodel.House;
+
 public class Controller extends Thread
 {	
 	private volatile boolean alive;
@@ -57,12 +61,15 @@ public class Controller extends Thread
 					// TODO : AFFICHER LES INFOS SOUS FORME EXPLICITE
 			    	System.out.println("Message : " + message);
 			    	
-			    	sensorSender.submitMessage(message);	
+			    	Frame frame = new Frame(message);
+			    	Actuator actuator = House.getInstance().updateActuator(frame);
+			    	System.out.println(actuator.toString());
+			    	
+			    	sensorSender.submitMessage(actuator.getFrame());	
 				}
 				else
 				{
-					sensorSender.submitMessage("message test");
-					Thread.sleep(3000);
+					Thread.sleep(2000);
 				}
 			}
 		}

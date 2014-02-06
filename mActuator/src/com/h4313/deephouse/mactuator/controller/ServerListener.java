@@ -25,12 +25,6 @@ public class ServerListener implements CallBack
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//System.out.println(tcpClient.receive());
-//		try {
-//			tcpReceiver.closeReceiver();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 		
 		this.record = true;
 	}
@@ -55,7 +49,6 @@ public class ServerListener implements CallBack
 		if(this.record && s != null)
 		{
 			messages.add(s);
-//			System.out.println(messages.get(messages.size()-1));
 		}
 		
 		return null;

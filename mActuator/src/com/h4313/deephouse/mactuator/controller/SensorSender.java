@@ -22,13 +22,6 @@ public class SensorSender implements CallBack
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		// Termination
-//		try {
-//			tcpSender.closeSender();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 	}
 	
 	public void stopSender() throws Exception
