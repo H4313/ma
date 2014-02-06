@@ -61,11 +61,12 @@ public class Controller extends Thread
 					// TODO : AFFICHER LES INFOS SOUS FORME EXPLICITE
 			    	System.out.println("Message : " + message);
 			    	
-			    	Frame frame = new Frame(message);
-			    	Actuator actuator = House.getInstance().updateActuator(frame);
-			    	System.out.println(actuator.toString());
+			    	// TODO : A decommenter a l'integration
+//			    	Frame frame = new Frame(message);
+//			    	Actuator actuator = House.getInstance().updateActuator(frame);
+//			    	System.out.println(actuator.toString());
 			    	
-			    	sensorSender.submitMessage(actuator.getFrame());	
+//			    	sensorSender.submitMessage(actuator.getFrame());	
 				}
 				else
 				{
