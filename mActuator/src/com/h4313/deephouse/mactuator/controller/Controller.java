@@ -3,6 +3,7 @@ package com.h4313.deephouse.mactuator.controller;
 import com.h4313.deephouse.actuator.Actuator;
 import com.h4313.deephouse.frame.Frame;
 import com.h4313.deephouse.housemodel.House;
+import com.h4313.deephouse.vue.MainVue;
 
 public class Controller extends Thread
 {	
@@ -13,6 +14,7 @@ public class Controller extends Thread
 	private ServerListener serverListener;
 	
 	private SensorSender sensorSender;
+	private MainVue vueActuator=null;
 	
     /**
      * Constructeur de l'objet.
@@ -20,6 +22,7 @@ public class Controller extends Thread
     private Controller() {
         super();
         this.alive = true;
+        vueActuator=MainVue.init(MainVue.VUE_SENSOR);
     }
 
     /**
@@ -55,7 +58,7 @@ public class Controller extends Thread
 			while(alive)
 			{
 				String message = this.serverListener.getMessage();
-				
+				vueActuator.refresh();
 				if(message != null)
 				{
 					// TODO : AFFICHER LES INFOS SOUS FORME EXPLICITE
