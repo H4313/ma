@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.h4313.deephouse.actuator.ActuatorType;
+import com.h4313.deephouse.dao.RoomDAO;
 import com.h4313.deephouse.housemodel.House;
 import com.h4313.deephouse.housemodel.Room;
 import com.h4313.deephouse.mactuator.controller.Controller;
@@ -19,7 +20,7 @@ public class Main
 		DeepHouseCalendar.getInstance().init();
 		
 		// Initialisation de la maison // TODO : RETIRER POUR LA PRODUCTION
-		try
+		/*try
 		{
 			List<Room> rooms = House.getInstance().getRooms();
 			int id = 0;
@@ -39,7 +40,10 @@ public class Main
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
+		}*/
+		RoomDAO roomDAO = new RoomDAO();
+		List<Room> rooms = roomDAO.findAll();
+		House.getInstance().setRooms(rooms);
 		
 		// Initialisation du reseau
 		Controller.getInstance().initServerListener(Integer.valueOf(args[0]).intValue());
