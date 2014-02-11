@@ -58,17 +58,14 @@ public class Controller extends Thread
 			while(alive)
 			{
 				String message = this.serverListener.getMessage();
-				vueActuator.refresh();
 				if(message != null)
 				{
-					// TODO : AFFICHER LES INFOS SOUS FORME EXPLICITE
-			    	System.out.println("Message : " + message);
-			    	
-			    	// TODO : A decommenter a l'integration
 			    	Frame frame = new Frame(message);
 			    	Actuator<Object> actuator = House.getInstance().updateActuator(frame);
-			    	System.out.println(actuator.toString());
 			    	
+			    	System.out.println(actuator.toString());
+					vueActuator.refresh();
+					
 			    	sensorSender.submitMessage(actuator.getFrame());	
 				}
 				else
