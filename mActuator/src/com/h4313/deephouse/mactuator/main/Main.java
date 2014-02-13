@@ -15,10 +15,7 @@ import com.h4313.deephouse.util.DeepHouseCalendar;
 public class Main
 {
 	public static void main(String[] args)
-	{
-		// Initialisation de l'horloge de simulation
-		DeepHouseCalendar.getInstance().init();
-		
+	{		
 		// Initialisation de la maison depuis persistance
 		RoomDAO roomDAO = new RoomDAO();
 		List<Room> rooms = roomDAO.findAll();
@@ -28,6 +25,9 @@ public class Main
 		Controller.getInstance().initServerListener(Integer.valueOf(args[0]).intValue());
 		Controller.getInstance().initSensorSender(args[1], Integer.valueOf(args[2]).intValue());
 		Controller.getInstance().start();
+
+		// Initialisation de l'horloge de simulation
+		DeepHouseCalendar.getInstance().init();
 		
 		
 		// En attente de l'arret de la machine
