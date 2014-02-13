@@ -63,10 +63,8 @@ public class Controller extends Thread
 			    	Frame frame = new Frame(message);
 			    	Actuator<Object> actuator = House.getInstance().updateActuator(frame);
 			    	
-			    	System.out.println(actuator.toString());
 					vueActuator.refresh();
-					
-			    	sensorSender.submitMessage(actuator.getFrame());	
+			    	sensorSender.submitMessage(actuator.composeFrame());	
 				}
 				else
 				{
