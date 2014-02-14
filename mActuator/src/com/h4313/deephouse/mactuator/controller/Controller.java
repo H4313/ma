@@ -22,7 +22,7 @@ public class Controller extends Thread
     private Controller() {
         super();
         this.alive = true;
-        vueActuator=MainVue.init(MainVue.VUE_SENSOR);
+        vueActuator=MainVue.init(MainVue.VUE_ACTUATOR);
     }
 
     /**
